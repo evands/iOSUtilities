@@ -6,20 +6,24 @@
 //  web: http://www.danielemargutti.com
 //  mail: daniele.margutti@gmail.com
 //  Copyright (c) 2012 Daniele Margutti. All rights reserved.
+//  Improvements by Evan Schoenberg (www.regularrateandrhythm.com). No rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 enum {
-    UIDevice_iPhoneStandardRes      = 1,    // iPhone 1,3,3GS Standard Resolution   (320x480px)
-    UIDevice_iPhoneHiRes            = 2,    // iPhone 4,4S High Resolution          (640x960px)
-    UIDevice_iPhoneTallerHiRes      = 3,    // iPhone 5 High Resolution             (640x1136px)
-    UIDevice_iPadStandardRes        = 4,    // iPad 1,2 Standard Resolution         (1024x768px)
-    UIDevice_iPadHiRes              = 5     // iPad 3 High Resolution               (2048x1536px)
+	UIDeviceResolution_Unknown			= 0,
+    UIDeviceResolution_iPhoneStandard	= 1,    // iPhone 1,3,3GS Standard Display	(320x480px)
+    UIDeviceResolution_iPhoneRetina35	= 2,    // iPhone 4,4S Retina Display 3.5"	(640x960px)
+    UIDeviceResolution_iPhoneRetina4	= 3,    // iPhone 5 Retina Display 4"		(640x1136px)
+    UIDeviceResolution_iPadStandard		= 4,    // iPad 1,2 Standard Display		(1024x768px)
+    UIDeviceResolution_iPadRetina		= 5     // iPad 3 Retina Display			(2048x1536px)
 }; typedef NSUInteger UIDeviceResolution;
 
-@interface UIDevice (Resolutions) { }
+@interface UIDevice (Resolutions)
 
-+ (UIDeviceResolution) currentResolution;
+- (UIDeviceResolution)resolution;
+
+NSString *NSStringFromResolution(UIDeviceResolution resolution);
 
 @end
